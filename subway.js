@@ -46,34 +46,7 @@ var csvStream = csv()
 stream.pipe(csvStream);
 
 
-function dump() {
-
-    var routeArray = Object.keys(routes);
-    var numRoutes = routeArray.length;
-
-    console.log('Dump routes, '+ numRoutes +' routes total');
-
-    for (var i = 0; i < numRoutes; i++) {
-        var myStart = routeArray[i];
-        var myDestinations = routes[myStart].values();
-
-        for (var destStation of myDestinations) {
-            console.log('From: ' + myStart + ' to: ' + destStation);
-        }
-    }
-
-    var stations = Array.from(stationsSet);
-
-    var numStations = stations.length;
-    console.log('Dump station list, '+ stationsSet.size +' stations total');
-    for (var i = 0; i < stations.length; i++) {
-        console.log('Station: ' + stations[i]);
-    }
-}
-
 function processRoutes() {
-
-    //dump();
 
     var nextSet = new Set();
     var currentSet = new Set();
